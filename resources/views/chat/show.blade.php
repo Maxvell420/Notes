@@ -2,7 +2,7 @@
     @if($house->user->frozen)
         <x-frozenUser :house="$house"/>
         @else
-        <h2>{{$house->city->name}}, {{$house->title}}, чат с продавцом</h2>
+        <h2>{{$house->city->name}}, {{$house->title}}, @if($user->id == $house->user_id) чат с покупателем: {{$secondUser->name}}@else чат с продавцом {{$house->user->name}}@endif</h2>
         <div class="flexColumn alignCenter">
             <div class="chat">
                 <div class="messages">
@@ -34,7 +34,7 @@
 <script>
     let maxColor = 220;
     let minColor = 100;
-    let chat = document.querySelector('.chat');
+    let chat = document.querySelector('.messages');
     scrollToBot();
     let currentHeight = chat.scrollTop;
     let messages = Array.from(document.querySelectorAll('.chat .userMessage'));
