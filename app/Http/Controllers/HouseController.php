@@ -56,7 +56,7 @@ class HouseController extends Controller
         if ($addresses){
             return view('house.address',compact(['addresses','validated','title']));
         } else {
-            Session::flash('message','wrong location provided');
+            Session::flash('message','Мы не смогли найти ваш адрес');
             $request->validate(['message'=>'required']);
         }
     }

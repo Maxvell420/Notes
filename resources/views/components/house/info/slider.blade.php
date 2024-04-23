@@ -7,6 +7,7 @@
             @foreach($house->photos as $photo)
                 <img class="housePhoto" src="{{asset($photo->path.'/'.$photo->name)}}" alt="houseImg">
             @endforeach
+                <img class="imgPreview mainImage" src="{{asset($house->coordinate->path.'/'.$house->coordinate->name)}}" alt="map">
         </div>
     @endif
 </div>
